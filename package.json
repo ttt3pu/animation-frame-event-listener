@@ -1,0 +1,26 @@
+{
+  "private": "true",
+  "name": "animation-frame-event-listener",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/animation-frame-event-listener.js",
+  "main": "dist/animation-frame-event-listener.js",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttt3pu/animation-frame-event-listener.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ttt3pu/animation-frame-event-listener/issues"
+  },
+  "homepage": "https://github.com/ttt3pu/animation-frame-event-listener#readme",
+  "devDependencies": {
+    "microbundle": "^0.13.0"
+  }
+}
