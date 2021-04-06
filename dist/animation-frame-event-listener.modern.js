@@ -1,0 +1,2 @@
+const n=(n,e,i,a)=>{n[i]&&n[i].callback&&console.error("Event id is duplicate."),n[i]={},n[i].isRunning=!1,n[i].callback=()=>{n[i].isRunning||(n[i].isRunning=!0,n.requestAnimationFrame(()=>{a(),n[i].isRunning=!1}))},n.addEventListener(e,n[i].callback)},e=(n,e,i)=>{n[i]&&n[i].callback&&(n.removeEventListener(e,n[i].callback),n[i]={})};export{n as addAnimationFrameEventListener,e as removeAnimationFrameEventListener};
+//# sourceMappingURL=animation-frame-event-listener.modern.js.map

@@ -1,0 +1,2 @@
+var n=function(n,i,c,e){n[c]&&n[c].callback&&console.error("Event id is duplicate."),n[c]={},n[c].isRunning=!1,n[c].callback=function(){n[c].isRunning||(n[c].isRunning=!0,n.requestAnimationFrame(function(){e(),n[c].isRunning=!1}))},n.addEventListener(i,n[c].callback)},i=function(n,i,c){n[c]&&n[c].callback&&(n.removeEventListener(i,n[c].callback),n[c]={})};export{n as addAnimationFrameEventListener,i as removeAnimationFrameEventListener};
+//# sourceMappingURL=animation-frame-event-listener.esm.js.map

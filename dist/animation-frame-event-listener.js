@@ -1,0 +1,2 @@
+exports.addAnimationFrameEventListener=function(n,e,i,t){n[i]&&n[i].callback&&console.error("Event id is duplicate."),n[i]={},n[i].isRunning=!1,n[i].callback=function(){n[i].isRunning||(n[i].isRunning=!0,n.requestAnimationFrame(function(){t(),n[i].isRunning=!1}))},n.addEventListener(e,n[i].callback)},exports.removeAnimationFrameEventListener=function(n,e,i){n[i]&&n[i].callback&&(n.removeEventListener(e,n[i].callback),n[i]={})};
+//# sourceMappingURL=animation-frame-event-listener.js.map
