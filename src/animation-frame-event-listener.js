@@ -13,11 +13,9 @@ export const addAnimationFrameEventListener = (element, eventName, eventId, call
   element[eventId] = {};
   element[eventId].isRunning = false;
   element[eventId].callback = () => {
-    // 呼び出されるまで何もしない
     if (!element[eventId].isRunning) {
       element[eventId].isRunning = true;
 
-      // 描画する前のタイミングで呼び出してもらう
       element.requestAnimationFrame(() => {
         callback();
 
