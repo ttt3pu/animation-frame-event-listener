@@ -1,41 +1,76 @@
 /**
- * Add event.
  * @param {string} element event target
  * @param {string} eventName scroll | resize
  * @param {string} eventId any unique id(use for add/remove)
  * @param {function} callback
- */
+*/
 export const addAnimationFrameEventListener = (element, eventName, eventId, callback) => {
-  if (element[eventId] && element[eventId].callback) {
+  /**
+   * Register event props to recieved element.
+   *
+   * element.animationFrameEventListener = {
+   *   hogeEvent: {
+   *    callback: () => ...,
+   *    isRunning: boolean,
+   *   },
+   *   hugaEvent: {
+   *    callback: () => ...,
+   *    isRunning: boolean,
+   *   },
+   *   ...
+   * }
+   */
+
+  if (
+    element.animationFrameEventListener &&
+    element.animationFrameEventListener[eventId] &&
+    element.animationFrameEventListener[eventId].callback
+  ) {
     console.error('Event id is duplicate.');
+    return;
   }
 
-  element[eventId] = {};
-  element[eventId].isRunning = false;
-  element[eventId].callback = () => {
-    if (!element[eventId].isRunning) {
-      element[eventId].isRunning = true;
+  if (!element.animationFrameEventListener) {
+    element.animationFrameEventListener = {};
+  }
+
+  element.animationFrameEventListener[eventId] = {};
+
+  const animationFrameProps = element.animationFrameEventListener[eventId];
+
+  animationFrameProps.isRunning = false;
+  animationFrameProps.callback = () => {
+    if (!animationFrameProps.isRunning) {
+      animationFrameProps.isRunning = true;
 
       element.requestAnimationFrame(() => {
         callback();
 
-        element[eventId].isRunning = false;
+        animationFrameProps.isRunning = false;
       });
     }
   };
 
-  element.addEventListener(eventName, element[eventId].callback);
+  element.addEventListener(eventName, animationFrameProps.callback);
 };
 
 /**
- * Remove event.
  * @param {string} element event target
  * @param {string} eventName scroll | resize
  * @param {string} eventId any unique id(use for add/remove)
 */
 export const removeAnimationFrameEventListener = (element, eventName, eventId) => {
-  if (element[eventId] && element[eventId].callback) {
-    element.removeEventListener(eventName, element[eventId].callback);
-    element[eventId] = {};
+  if (!element.animationFrameEventListener) {
+    return;
+  }
+
+  const animationFrameProps = element.animationFrameEventListener[eventId];
+
+  if (
+    animationFrameProps &&
+    animationFrameProps.callback
+  ) {
+    element.removeEventListener(eventName, animationFrameProps.callback);
+    delete element.animationFrameEventListener[eventId];
   }
 };
