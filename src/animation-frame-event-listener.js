@@ -1,10 +1,10 @@
 /**
  * @param {string} element event target
- * @param {string} eventName scroll | resize
+ * @param {string} eventType scroll | resize
  * @param {string} eventId any unique id(use for add/remove)
  * @param {function} callback
 */
-export const addAnimationFrameEventListener = (element, eventName, eventId, callback) => {
+export const addAnimationFrameEventListener = (element, eventType, eventId, callback) => {
   /**
    * Register event props to recieved element.
    *
@@ -39,6 +39,7 @@ export const addAnimationFrameEventListener = (element, eventName, eventId, call
   const animationFrameProps = element.animationFrameEventListener[eventId];
 
   animationFrameProps.isRunning = false;
+  animationFrameProps.eventType = eventType;
   animationFrameProps.callback = () => {
     if (!animationFrameProps.isRunning) {
       animationFrameProps.isRunning = true;
@@ -51,26 +52,23 @@ export const addAnimationFrameEventListener = (element, eventName, eventId, call
     }
   };
 
-  element.addEventListener(eventName, animationFrameProps.callback);
+  element.addEventListener(eventType, animationFrameProps.callback);
 };
 
 /**
  * @param {string} element event target
- * @param {string} eventName scroll | resize
  * @param {string} eventId any unique id(use for add/remove)
 */
-export const removeAnimationFrameEventListener = (element, eventName, eventId) => {
+export const removeAnimationFrameEventListener = (element, eventId) => {
   if (!element.animationFrameEventListener) {
     return;
   }
 
   const animationFrameProps = element.animationFrameEventListener[eventId];
 
-  if (
-    animationFrameProps &&
-    animationFrameProps.callback
-  ) {
-    element.removeEventListener(eventName, animationFrameProps.callback);
+  if (animationFrameProps) {
+    const {callback, eventType} = animationFrameProps;
+    element.removeEventListener(eventType, callback);
     delete element.animationFrameEventListener[eventId];
   }
 };

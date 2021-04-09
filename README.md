@@ -15,5 +15,5 @@ const exampleCallBack = () => {
 addAnimationFrameEventListener(window, 'scroll', 'anyUniqueIdForEvent', exampleCallBack);
 
 // removeEvent
-removeAnimationFrameEventListener(window, 'scroll', 'anyUniqueIdForEvent', exampleCallBack);
+removeAnimationFrameEventListener(window, 'anyUniqueIdForEvent');
 ```
