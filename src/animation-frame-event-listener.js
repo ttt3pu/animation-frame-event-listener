@@ -44,7 +44,7 @@ export const addAnimationFrameEventListener = (element, eventType, eventId, call
     if (!animationFrameProps.isRunning) {
       animationFrameProps.isRunning = true;
 
-      element.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
         callback();
 
         animationFrameProps.isRunning = false;
