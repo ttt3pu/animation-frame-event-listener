@@ -52,7 +52,7 @@ export const addAnimationFrameEventListener = (element, eventType, eventId, call
     }
   };
 
-  element.addEventListener(eventType, animationFrameProps.callback);
+  element.addEventListener(eventType, animationFrameProps.callback, {passive: true});
 };
 
 /**
