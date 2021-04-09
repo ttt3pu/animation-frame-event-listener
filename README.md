@@ -8,7 +8,7 @@ Methods for reduce load on scroll/resize eventListener.
 import {addAnimationFrameEventListener, removeAnimationFrameEventListener} from 'animation-frame-event-listener';
 
 const exampleCallBack = () => {
-  console.log(wiondow.scrollY);
+  console.log(window.scrollY);
 };
 
 // addEvent
