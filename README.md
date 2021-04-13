@@ -1,6 +1,6 @@
 # animation-frame-event-listener
 
-Methods for reduce load on scroll/resize eventListener.
+Util for better performance on scroll/resize eventListener.
 
 ## usage
 
