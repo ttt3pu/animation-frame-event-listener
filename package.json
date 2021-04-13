@@ -1,21 +1,27 @@
 {
-  "private": "true",
   "name": "animation-frame-event-listener",
   "version": "1.0.0",
-  "description": "",
+  "description": "Util for better performance on scroll/resize eventListener.",
   "source": "src/animation-frame-event-listener.js",
   "main": "dist/animation-frame-event-listener.js",
+  "exports": "dist/animation-frame-event-listener.modern.js",
+  "module": "dist/animation-frame-event-listener.module.js",
+  "unpkg": "dist/animation-frame-event-listener.umd.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "microbundle",
-    "dev": "microbundle watch"
+    "dev": "microbundle watch",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ttt3pu/animation-frame-event-listener.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "attt (https://github.com/ttt3pu)",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ttt3pu/animation-frame-event-listener/issues"
   },
