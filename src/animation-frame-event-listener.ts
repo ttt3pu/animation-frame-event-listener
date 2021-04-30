@@ -1,4 +1,7 @@
-type eventType = 'scroll' | 'resize';
+/** eventListener type */
+type eventType = string;
+/** Any unieue ID(use for add/remove) */
+type eventId = string;
 
 interface animationFrameProps {
   callback: Function,
@@ -14,15 +17,11 @@ interface targetElement extends HTMLElement {
 
 /**
  * Register event props to recieved element.
- * @param element event target
- * @param eventType scroll | resize
- * @param eventId any unique id(use for add/remove)
- * @param callback
 */
 export const addAnimationFrameEventListener = (
   element: targetElement,
   eventType: eventType,
-  eventId: string,
+  eventId: eventId,
   callback: Function,
 ) => {
   if (
@@ -65,7 +64,7 @@ export const addAnimationFrameEventListener = (
 */
 export const removeAnimationFrameEventListener = (
   element: targetElement,
-  eventId: string
+  eventId: eventId,
 ) => {
   if (!element.animationFrameEventListener) {
     return;

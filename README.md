@@ -1,6 +1,6 @@
 # animation-frame-event-listener
 
-A util that uses window.requestAnimationFrame to better performance of scroll/resize event listeners.
+A util that uses window.requestAnimationFrame to better performance of scroll/resize/etc event listeners.
 
 ## usage
 
