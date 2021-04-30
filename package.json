@@ -2,7 +2,7 @@
   "name": "animation-frame-event-listener",
   "version": "1.0.2",
   "description": "Util for better performance on scroll/resize eventListener.",
-  "source": "src/animation-frame-event-listener.js",
+  "source": "src/animation-frame-event-listener.ts",
   "main": "dist/animation-frame-event-listener.js",
   "exports": "dist/animation-frame-event-listener.modern.js",
   "module": "dist/animation-frame-event-listener.module.js",
