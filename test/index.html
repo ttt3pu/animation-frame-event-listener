@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="height: 1000vh;">
+  <div style="position: sticky;top: 0;">
+    window.scrollY: <span id="target">0</span>
+
+    <button onclick="add()">add event</button>
+    <button onclick="remove()">remove event</button>
+  </div>
+
+  <script src="../dist/animation-frame-event-listener.umd.js"></script>
+
+  <script>
+    const callback = () => {
+      document.getElementById('target').innerHTML = window.scrollY;
+    };
+
+
+    const add = () => {
+      console.log(callback);
+      animationFrameEventListener.addAnimationFrameEventListener(window, 'scroll', 'fooEvent', callback);
+    }
+
+    const remove = () => {
+      console.log(callback);
+      animationFrameEventListener.removeAnimationFrameEventListener(window, 'fooEvent');
+    }
+  </script>
+</body>
+</html>
