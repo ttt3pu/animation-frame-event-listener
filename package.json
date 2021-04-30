@@ -1,6 +1,6 @@
 {
   "name": "animation-frame-event-listener",
-  "version": "1.0.2",
+  "version": "1.1.2",
   "description": "Util for better performance on scroll/resize eventListener.",
   "source": "src/animation-frame-event-listener.ts",
   "main": "dist/animation-frame-event-listener.js",
